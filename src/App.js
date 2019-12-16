@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import DetailsCard from "./components/DetailsCard";
+import DetailsForm from "./components/DetailsForm";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    firstName: "Jazz",
+    lastName: "Chatfield",
+    dateOfBirth: "21st October 1992",
+    faveActivity: "Writing",
+    bgColor: "white"
+  };
+
+  componentDidMount = () => {
+    document.body.style.backgroundColor = "black";
+  };
+
+  updateDetailsFromForm = (firstName, lastName, dateOfBirth, faveActivity) => {
+    this.setState({ firstName, lastName, dateOfBirth, faveActivity });
+  };
+
+  render() {
+    const {
+      firstName,
+      lastName,
+      dateOfBirth,
+      faveActivity,
+      bgColor
+    } = this.state;
+    return (
+      <main style={{ backgroundColor: bgColor }}>
+        <DetailsCard
+          firstName={firstName}
+          lastName={lastName}
+          dateOfBirth={dateOfBirth}
+          faveActivity={faveActivity}
+          updateDetailsFromForm={this.updateDetailsFromForm}
+        />
+        <div className="ProfilePic">
+          <img
+            src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
+            alt={`${firstName} ${lastName}'s profile`}
+            width="200"
+          ></img>
+        </div>
+        <DetailsForm />
+      </main>
+    );
+  }
 }
 
 export default App;
