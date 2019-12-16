@@ -20,6 +20,10 @@ class App extends React.Component {
     this.setState({ firstName, lastName, dateOfBirth, faveActivity });
   };
 
+  componentDidUpdate = () => {
+    console.log(this.state);
+  };
+
   render() {
     const {
       firstName,
@@ -35,7 +39,6 @@ class App extends React.Component {
           lastName={lastName}
           dateOfBirth={dateOfBirth}
           faveActivity={faveActivity}
-          updateDetailsFromForm={this.updateDetailsFromForm}
         />
         <div className="ProfilePic">
           <img
@@ -44,7 +47,7 @@ class App extends React.Component {
             width="200"
           ></img>
         </div>
-        <DetailsForm />
+        <DetailsForm updateDetailsFromForm={this.updateDetailsFromForm} />
       </main>
     );
   }
