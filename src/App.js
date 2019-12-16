@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import DetailsCard from "./components/DetailsCard";
 import DetailsForm from "./components/DetailsForm";
+import FriendDisplayer from "./components/FriendDisplayer";
 
 class App extends React.Component {
   state = {
@@ -48,6 +49,7 @@ class App extends React.Component {
           ></img>
         </div>
         <DetailsForm updateDetailsFromForm={this.updateDetailsFromForm} />
+        <FriendDisplayer />
       </main>
     );
   }
