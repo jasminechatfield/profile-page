@@ -1,13 +1,14 @@
 import React from "react";
 import { ChromePicker } from "react-color";
+import * as api from "../api";
 
 class ColorPicker extends React.Component {
   state = { color: "#000000" };
 
-  handleColorSubmit = event => {
-    console.log("background colour change");
-    const { updateColorFromPicker } = this.props;
-    updateColorFromPicker(this.state.color);
+  randomColor = () => {
+    api.getRandomColorHex().then(color => {
+      this.setState({ color });
+    });
   };
 
   handleChangeComplete = (color, event) => {
@@ -15,11 +16,11 @@ class ColorPicker extends React.Component {
     this.setState({ color: color.hex });
   };
 
-  // componentDidUpdate = (prevProps, prevState) => {
-  //   if (prevState.color !== this.state.color) {
-  //     // api call goes here
-  //   }
-  // };
+  handleColorSubmit = event => {
+    console.log("background colour change");
+    const { updateColorFromPicker } = this.props;
+    updateColorFromPicker(this.state.color);
+  };
 
   render() {
     const { handleChangeComplete } = this;
@@ -28,12 +29,13 @@ class ColorPicker extends React.Component {
     return (
       <div className="colorPicker">
         <ChromePicker color={color} onChangeComplete={handleChangeComplete} />
-        <button type="submit" onClick={this.handleColorSubmit}>
-          Change background
+
+        <button type="button" onClick={this.randomColor}>
+          Randomise
         </button>
         <br />
-        <button type="button" onClick={this.randomColor}>
-          Change to random colour
+        <button type="submit" onClick={this.handleColorSubmit}>
+          Set background
         </button>
       </div>
     );
