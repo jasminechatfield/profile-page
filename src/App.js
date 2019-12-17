@@ -3,6 +3,7 @@ import "./App.css";
 import DetailsCard from "./components/DetailsCard";
 import DetailsForm from "./components/DetailsForm";
 import FriendDisplayer from "./components/FriendDisplayer";
+import LoginHistoryDisplayer from "./components/LoginHistoryDisplayer";
 
 class App extends React.Component {
   state = {
@@ -50,6 +51,7 @@ class App extends React.Component {
         </div>
         <DetailsForm updateDetailsFromForm={this.updateDetailsFromForm} />
         <FriendDisplayer />
+        <LoginHistoryDisplayer />
       </main>
     );
   }
