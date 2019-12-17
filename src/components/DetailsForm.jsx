@@ -13,31 +13,33 @@ class DetailsForm extends React.Component {
 
   // This function handles change within the form fields and sets the state with the new change each time it is made. In this way it binds it to the form field, so one cannot change without channging the other.
   handleChange = event => {
+    // Logging the event to the console:
+    console.log(event);
+    // Setting the state with the target value with each change:
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  // This function handles form submission. It takes the values from each of the form fields and calls a function passed down in props from the App, 'updateDetailsFromForm' which updates the state in the App with the new details. Because these values are the same in state, we could also take them from state to identical effect.
+  // This function handles form submission. It takes the values from each of the form fields and calls a function passed down in props from the App, 'updateDetailsFromForm' which updates the state in the App with the new details.
   handleSubmit = event => {
+    // Logging the event to the console:
+    console.log(event);
+    // Preventing the default effects of the button:
     event.preventDefault();
-    const form = event.target.children[0];
-    // The current value of the firstName field:
-    const firstName = form.children[1].children[0].value;
 
-    // The current value of the lastName field:
-    const lastName = form.children[2].children[0].value;
-
-    // The current value of the dateOfBirth field:
-    const dateOfBirth = form.children[3].children[0].value;
-
-    //The current value of the faveActivity field:
-    const faveActivity = form.children[4].children[0].value;
+    // Destructuring elements from the state:
+    const {
+      firstNameField,
+      lastNameField,
+      dateOfBirthField,
+      faveActivityField
+    } = this.state;
 
     //All four of these values are passed into the function updateDetailsFromForm passed down in props.
     this.props.updateDetailsFromForm(
-      firstName,
-      lastName,
-      dateOfBirth,
-      faveActivity
+      firstNameField,
+      lastNameField,
+      dateOfBirthField,
+      faveActivityField
     );
   };
 
