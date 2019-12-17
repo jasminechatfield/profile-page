@@ -3,11 +3,12 @@ import React from "react";
 class LoginHistoryDisplayer extends React.Component {
   state = {
     history: [
-      "Yesterday",
-      "The day before",
-      "The day before that",
-      "The day before the day before that",
-      "Etcetera"
+      new Date(),
+      new Date(2019, 11, 16),
+      new Date(2019, 11, 10),
+      new Date(2019, 10, 28),
+      new Date(2019, 10, 21),
+      new Date(2019, 9, 21)
     ]
   };
   render() {
@@ -17,7 +18,7 @@ class LoginHistoryDisplayer extends React.Component {
         <h2>Login History</h2>
         <ul>
           {history.map(date => {
-            return <li key={date}>{date}</li>;
+            return <li key={date}>{date.toString()}</li>;
           })}
         </ul>
       </div>

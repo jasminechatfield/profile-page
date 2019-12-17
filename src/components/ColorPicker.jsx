@@ -27,12 +27,16 @@ class ColorPicker extends React.Component {
     const { color } = this.state;
 
     return (
-      <div className="colorPicker">
-        <ChromePicker color={color} onChangeComplete={handleChangeComplete} />
-
+      <div className="ColorPicker">
+        <h2>Favourite colour</h2>
         <button type="button" onClick={this.randomColor}>
           Randomise
         </button>
+        <ChromePicker
+          className="ChromePicker"
+          color={color}
+          onChangeComplete={handleChangeComplete}
+        />
         <br />
         <button type="submit" onClick={this.handleColorSubmit}>
           Set background
