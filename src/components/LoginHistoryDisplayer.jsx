@@ -1,6 +1,9 @@
 import React from "react";
 
+// The LoginHistoryDisplayer class component holds login history information in an array in state and maps each item into list items.
+
 class LoginHistoryDisplayer extends React.Component {
+  // The state is initialised with a number of date objects.
   state = {
     history: [
       new Date(),
@@ -12,6 +15,7 @@ class LoginHistoryDisplayer extends React.Component {
     ]
   };
   render() {
+    // Destructuring history from the state:
     const { history } = this.state;
     return (
       <div className="LoginHistoryDisplayer">
