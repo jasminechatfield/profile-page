@@ -7,6 +7,7 @@ import LoginHistoryDisplayer from "./components/LoginHistoryDisplayer";
 import ColorPicker from "./components/ColorPicker";
 
 class App extends React.Component {
+  // The state is initialised with default values for first name, last name, date of birth, favourite activity and favourite/background colour.
   state = {
     firstName: "Jazz",
     lastName: "Chatfield",
@@ -15,19 +16,13 @@ class App extends React.Component {
     bgColor: "#000000"
   };
 
+  // When the component mounts, it sets the body background colour from the DOM as the bgColor variable in state.
   componentDidMount = () => {
     const { bgColor } = this.state;
     document.body.style.backgroundColor = bgColor;
   };
 
-  updateDetailsFromForm = (firstName, lastName, dateOfBirth, faveActivity) => {
-    this.setState({ firstName, lastName, dateOfBirth, faveActivity });
-  };
-
-  updateColorFromPicker = bgColor => {
-    this.setState({ bgColor });
-  };
-
+  // Every time the component updates, it compares the bgColor of the previous state to the current state. If they are not equal, it re-sets the body background colour to the new colour.
   componentDidUpdate = (prevProps, prevState) => {
     const { bgColor } = this.state;
     if (prevState.bgColor !== bgColor) {
@@ -35,8 +30,26 @@ class App extends React.Component {
     }
   };
 
+  // This function will be passed into the DetailsForm component to be able to set the App state using the values of the form fields within.
+  updateDetailsFromForm = (firstName, lastName, dateOfBirth, faveActivity) => {
+    this.setState({ firstName, lastName, dateOfBirth, faveActivity });
+  };
+
+  // This function will be passed into the ColorPicker component to be able to set the App state using the chosen colour.
+  updateColorFromPicker = bgColor => {
+    this.setState({ bgColor });
+  };
+
   render() {
-    const { firstName, lastName, dateOfBirth, faveActivity } = this.state;
+    // Destructuring elements from state:
+    const {
+      firstName,
+      lastName,
+      dateOfBirth,
+      faveActivity,
+      bgColor
+    } = this.state;
+
     return (
       <main style={{ backgroundColor: "#FFFFFF" }}>
         <DetailsCard
@@ -44,6 +57,7 @@ class App extends React.Component {
           lastName={lastName}
           dateOfBirth={dateOfBirth}
           faveActivity={faveActivity}
+          faveColor={bgColor}
         />
         <div className="ProfilePic">
           <img
