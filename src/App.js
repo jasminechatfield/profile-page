@@ -10,7 +10,7 @@ class App extends React.Component {
   state = {
     firstName: "Jazz",
     lastName: "Chatfield",
-    dateOfBirth: "21st October 1992",
+    dateOfBirth: "1992-10-21",
     faveActivity: "Writing",
     bgColor: "#000000"
   };

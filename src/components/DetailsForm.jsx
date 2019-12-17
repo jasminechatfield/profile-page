@@ -4,14 +4,11 @@ class DetailsForm extends React.Component {
   state = {
     firstNameField: "Jazz",
     lastNameField: "Chatfield",
-    dateOfBirthField: "",
+    dateOfBirthField: "1992-10-21",
     faveActivityField: "Writing"
   };
 
   handleChange = event => {
-    console.log(event);
-    console.log([event.target.name]);
-    console.log(this.state[event.target.name]);
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -67,7 +64,7 @@ class DetailsForm extends React.Component {
             <label>
               Date of birth:{" "}
               <input
-                type="text"
+                type="date"
                 id="dateOfBirthField"
                 name="dateOfBirthField"
                 onChange={handleChange}
