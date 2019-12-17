@@ -17,7 +17,7 @@ class LoginHistoryDisplayer extends React.Component {
         <h2>Login History</h2>
         <ul>
           {history.map(date => {
-            return <li key="date">{date}</li>;
+            return <li key={date}>{date}</li>;
           })}
         </ul>
       </div>
