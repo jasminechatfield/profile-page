@@ -4,6 +4,7 @@ import DetailsCard from "./components/DetailsCard";
 import DetailsForm from "./components/DetailsForm";
 import FriendDisplayer from "./components/FriendDisplayer";
 import LoginHistoryDisplayer from "./components/LoginHistoryDisplayer";
+import ColorPicker from "./components/ColorPicker";
 
 class App extends React.Component {
   state = {
@@ -11,31 +12,33 @@ class App extends React.Component {
     lastName: "Chatfield",
     dateOfBirth: "21st October 1992",
     faveActivity: "Writing",
-    bgColor: "white"
+    bgColor: "#000000"
   };
 
   componentDidMount = () => {
-    document.body.style.backgroundColor = "black";
+    const { bgColor } = this.state;
+    document.body.style.backgroundColor = bgColor;
   };
 
   updateDetailsFromForm = (firstName, lastName, dateOfBirth, faveActivity) => {
     this.setState({ firstName, lastName, dateOfBirth, faveActivity });
   };
 
-  componentDidUpdate = () => {
-    console.log(this.state);
+  updateColorFromPicker = bgColor => {
+    this.setState({ bgColor });
+  };
+
+  componentDidUpdate = (prevProps, prevState) => {
+    const { bgColor } = this.state;
+    if (prevState.bgColor !== bgColor) {
+      document.body.style.backgroundColor = bgColor;
+    }
   };
 
   render() {
-    const {
-      firstName,
-      lastName,
-      dateOfBirth,
-      faveActivity,
-      bgColor
-    } = this.state;
+    const { firstName, lastName, dateOfBirth, faveActivity } = this.state;
     return (
-      <main style={{ backgroundColor: bgColor }}>
+      <main style={{ backgroundColor: "#FFFFFF" }}>
         <DetailsCard
           firstName={firstName}
           lastName={lastName}
@@ -52,6 +55,7 @@ class App extends React.Component {
         <DetailsForm updateDetailsFromForm={this.updateDetailsFromForm} />
         <FriendDisplayer />
         <LoginHistoryDisplayer />
+        <ColorPicker updateColorFromPicker={this.updateColorFromPicker} />
       </main>
     );
   }
