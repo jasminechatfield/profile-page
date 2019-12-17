@@ -1,7 +1,10 @@
 import React from "react";
 import FriendCard from "./FriendCard";
 
+// The FriendDisplayer class component holds 9 friend objects in an array in state and generates FriendCards from the objects.
+
 class FriendDisplayer extends React.Component {
+  // The state is initialised with an array of 9 friend objects containing a name and picture URL each.
   state = {
     friends: [
       {
@@ -43,7 +46,10 @@ class FriendDisplayer extends React.Component {
     ]
   };
   render() {
+    // Deconstructing friends from the state:
     const { friends } = this.state;
+
+    // The friends array is mapped into individual FriendCard functional components.
     return (
       <div className="FriendDisplayer">
         <h2>Friends</h2>
