@@ -13,34 +13,39 @@ class ColorPicker extends React.Component {
   // randomColor calls the API function getRandomColorHex and updates the Chrome Picker with that hex.
   randomColor = () => {
     api.getRandomColorHex().then(color => {
+      // Set the state with the random hex colour, and by extension the colour in the colour picker:
       this.setState({ color });
     });
   };
 
   // This function handles the colour picker when the change is complete and sets the state of the component, ready for the handleColorSubmit function to be called on submit.
   handleChangeComplete = (color, event) => {
-    console.log("state colour change");
+    // Log event to the console:
+    console.log(event);
+    // Set the state with the hex of the colour from the picker:
     this.setState({ color: color.hex });
   };
 
   // This function calls updateColorFromPicker, a function passed down in props, with the colour that is currently in state, which sets the background colour of the body.
   handleColorSubmit = event => {
-    console.log("background colour change");
+    // Log event to the console:
+    console.log(event);
     // Destructuring the updateColorFromPicker function out of the component's props:
     const { updateColorFromPicker } = this.props;
+    // Call updateColorFromPicker with the state colour to update the body background:
     updateColorFromPicker(this.state.color);
   };
 
   render() {
     // Destructuring functions out of the component:
-    const { handleChangeComplete, handleColorSubmit } = this;
+    const { handleChangeComplete, handleColorSubmit, randomColor } = this;
     // Destructuring color out of state:
     const { color } = this.state;
 
     return (
       <div className="ColorPicker">
         <h2>Favourite colour</h2>
-        <button type="button" onClick={this.randomColor}>
+        <button type="button" onClick={randomColor}>
           Randomise
         </button>
         <ChromePicker
