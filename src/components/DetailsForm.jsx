@@ -40,7 +40,7 @@ class DetailsForm extends React.Component {
       <div className="DetailsForm">
         <form onSubmit={handleSubmit}>
           <fieldset>
-            <legend>Update details</legend>
+            <h2> Update details </h2>
             <label>
               First name:{" "}
               <input

@@ -37,7 +37,7 @@ class FriendDisplayer extends React.Component {
         picture: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
       },
       {
-        name: "Sparrowhawk",
+        name: "Sven",
         picture: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
       }
     ]
