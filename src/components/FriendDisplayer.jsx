@@ -9,39 +9,39 @@ class FriendDisplayer extends React.Component {
     friends: [
       {
         name: "John",
-        picture: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
+        picture: "https://placedog.net/50/50?random&s=a"
       },
       {
         name: "Sunil",
-        picture: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
+        picture: "https://placedog.net/50/50?random&s=b"
       },
       {
         name: "Afshan",
-        picture: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
+        picture: "https://placedog.net/50/50?random&s=c"
       },
       {
         name: "Kelly",
-        picture: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
+        picture: "https://placedog.net/50/50?random&s=d"
       },
       {
         name: "Hex",
-        picture: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
+        picture: "https://placedog.net/50/50?random&s=e"
       },
       {
         name: "Kim",
-        picture: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
+        picture: "https://placedog.net/50/50?random&s=f"
       },
       {
         name: "Crystal",
-        picture: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
+        picture: "https://placedog.net/50/50?random&s=g"
       },
       {
         name: "Vasil",
-        picture: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
+        picture: "https://placedog.net/50/50?random&s=h"
       },
       {
         name: "Sven",
-        picture: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
+        picture: "https://placedog.net/50/50?random&s=i"
       }
     ]
   };
@@ -55,7 +55,7 @@ class FriendDisplayer extends React.Component {
         <h2>Friends</h2>
         <ul>
           {friends.map(friend => {
-            return <FriendCard friend={friend} />;
+            return <FriendCard key={friend.name} friend={friend} />;
           })}
         </ul>
       </div>

@@ -13,7 +13,7 @@ class App extends React.Component {
     lastName: "Chatfield",
     dateOfBirth: "1992-10-21",
     faveActivity: "Writing",
-    bgColor: "#000000"
+    bgColor: "#ABE8B1"
   };
 
   // When the component mounts, it sets the body background colour from the DOM as the bgColor variable in state.
@@ -61,7 +61,7 @@ class App extends React.Component {
         />
         <div className="ProfilePic">
           <img
-            src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
+            src="https://placedog.net/200/200?random"
             alt={`${firstName} ${lastName}'s profile`}
             width="200"
           ></img>
