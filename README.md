@@ -1,6 +1,6 @@
 # Profile Page
 
-A mock-up of a profile page with updatable name, date of birth, favourite activity and favourite colour functionality.
+A mock-up of a profile page with functionality to update: name, date of birth, favourite activity and favourite colour.
 
 ## Getting Started
 
