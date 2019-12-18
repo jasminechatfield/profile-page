@@ -30,18 +30,23 @@ main {
 .DetailsForm {
   margin: 20px;
   padding: 10px;
-  border-width: 1px;
   border-color: black;
+  border-width: 2px 0px 2px 0;
   border-style: solid;
 }
 
 .DetailsForm fieldset {
+  margin: 10px;
   border: 0px;
+}
+
+.DetailsForm h2 {
+  text-align: center;
 }
 
 .DetailsForm label {
   display: block;
-  margin: 10px;
+  margin: 20px;
 }
 
 .DetailsForm input {
@@ -76,6 +81,9 @@ main {
   margin: 20px;
   padding: 10px 0px;
   text-align: center;
+  border-bottom: black;
+  border-width: 0px 0px 2px 0;
+  border-style: solid;
 }
 
 .FriendDisplayer h2 {
@@ -91,11 +99,16 @@ main {
 
 .LoginHistoryDisplayer {
   margin: 20px;
-  padding: 10px 20px;
+  padding: 10px 20px 50px 20px;
+  border-bottom: black;
+  border-width: 0px 0px 2px 0;
+  border-style: solid;
 }
 
 .LoginHistoryDisplayer h2 {
-  margin: 10px 0px;
+  margin: 5px 0px;
+  padding: 5px 0px 20px 0px;
+  text-align: center;
 }
 
 .LoginHistoryDisplayer li {
@@ -155,6 +168,9 @@ main {
   .DetailsForm {
     grid-column: 1/5;
     grid-row: 2/3;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
   }
 
   .FriendDisplayer {
@@ -202,6 +218,9 @@ main {
   .DetailsForm {
     grid-column: 1/2;
     grid-row: 2/3;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
   }
 
   .FriendDisplayer {
