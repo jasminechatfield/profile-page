@@ -6,9 +6,13 @@ import * as api from "../api";
 
 // ChromePicker is an imported react-color package that creates a slider and colour picker.
 
+// react-color is currently throwing a warning due to 'componentWillReceiveProps' being deprecated. This has been discussed here: https://github.com/casesandberg/react-color/issues/634
+
+// There is a patch available here until the issue is fixed: https://gist.github.com/hlodver/ee336b071f2b2b85c4903660fb8cd686
+
 class ColorPicker extends React.Component {
   // The state is initialised with a default colour. This is tied to the colour picker and automatically updates when a new colour is selected.
-  state = { color: "#000000" };
+  state = { color: "#ABE8B1" };
 
   // randomColor calls the API function getRandomColorHex and updates the Chrome Picker with that hex.
   randomColor = () => {
